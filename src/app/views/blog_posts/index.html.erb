@@ -16,11 +16,6 @@
               </address>
               <h1 class="mb-4 text-3xl font-extrabold leading-tight text-gray-900 lg:mb-6 lg:text-4xl dark:text-white">Best practices for successful prototypes</h1>
           </header>
-          <div>
-            <% if user_signed_in?  %>
-                <%= button_to "Log out", destroy_user_session_path, method: :delete %>
-            <% end %>
-          </div>
               
           <p class="lead text-gray-300 my-4">Flowbite is an open-source library of UI components built with the utility-first
               classes from Tailwind CSS. It also includes interactive elements such as dropdowns, modals,
@@ -149,31 +144,22 @@
   <aside aria-label="Related articles" class="py-8 lg:py-24 bg-gray-50 dark:bg-gray-800">
   <div class="px-4 mx-auto max-w-screen-xl">
       <h2 class="mb-8 text-2xl font-bold text-gray-900 dark:text-white text-center md:text-start">Related articles</h2>
-      <div class="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
+     
+      <div class="grid gap-12 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4">
+        <% @all_blog_posts.each do |blog_post| %>
           <article class="max-w-xs">
               <a href="#">
                   <img src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/article/blog-1.png" class="mb-5 rounded-lg" alt="Image 1">
               </a>
               <h2 class="mb-2 text-xl font-bold leading-tight text-gray-900 dark:text-white">
-                  <a href="#">Our first office</a>
+                  <a href="#"><%= blog_post.title %></a>
               </h2>
-              <p class="mb-4 text-gray-500 dark:text-gray-400">Over the past year, Volosoft has undergone many changes! After months of preparation.</p>
+              <p class="mb-4 text-gray-500 dark:text-gray-400"><%= blog_post.body %></p>
               <a href="/blog/:id" class="inline-flex items-center font-medium underline underline-offset-4 text-primary-600 dark:text-primary-500 hover:no-underline">
                   Read in 2 minutes
               </a>
           </article>
-          <article class="max-w-xs">
-              <a href="#">
-                  <img src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/article/blog-2.png" class="mb-5 rounded-lg" alt="Image 2">
-              </a>
-              <h2 class="mb-2 text-xl font-bold leading-tight text-gray-900 dark:text-white">
-                  <a href="#">Enterprise design tips</a>
-              </h2>
-              <p class="mb-4  text-gray-500 dark:text-gray-400">Over the past year, Volosoft has undergone many changes! After months of preparation.</p>
-              <a href="#" class="inline-flex items-center font-medium underline underline-offset-4 text-primary-600 dark:text-primary-500 hover:no-underline">
-                  Read in 12 minutes
-              </a>
-          </article>
+        <% end %>
       </div>
   </div>
   </aside>
@@ -307,9 +293,9 @@
                   <linearGradient id="paint8_linear_11430_22515" x1="7.15667" y1="21.5399" x2="14.0824" y2="31.9579" gradientUnits="userSpaceOnUse"><stop stop-color="#0092FF"/><stop offset="1" stop-color="#45B2FF"/></linearGradient>
                   </defs>
               </svg>
-              Flowbite    
+              Code-Crafted    
           </a>
-          <span class="block text-sm text-center text-gray-500 dark:text-gray-400">© 2021-2022 <a href="#" class="hover:underline">Flowbite™</a>. All Rights Reserved.
+          <span class="block text-sm text-center text-gray-500 dark:text-gray-400">© 2023-2024 <a href="#" class="hover:underline">Code-Crafted</a>. All Rights Reserved.
           </span>
           <ul class="flex justify-center mt-5 space-x-5">
               <li>

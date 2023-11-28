@@ -8,6 +8,10 @@ Rails.application.routes.draw do
 
   get "blog/:id" => "blog_posts#show", as: :blog_post
 
+  get "user_blogs" => "blog_posts#user_blogs", as: :my_blogs
+  get "new_blog" => "blog_posts#new", as: :new_blog
+  post "create" => "blog_posts#create", as: :create_blog
+
   # Defines the root path route ("/")
   root "blog_posts#index"
 end
