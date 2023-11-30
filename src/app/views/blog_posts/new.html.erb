@@ -1,6 +1,6 @@
 
 <div class="h-screen w-screen bg-slate-800">
-<%= form_with(model: @blog_post, url: '/create', method: 'post', local: true,class:"max-w-md mx-auto py-40") do |form| %>
+<%= form_with(model: @blog_post, url: '/create', method: 'post', class:"max-w-md mx-auto py-40") do |form| %>
   <div class="mb-5">
     <%= form.label :title, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
     <%= form.text_field :title, class: "shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light", placeholder: "title", required: true %>
@@ -19,6 +19,6 @@
     </div>
     <label for="terms" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">I agree with the <a href="#" class="text-blue-600 hover:underline dark:text-blue-500">terms and conditions</a></label>
   </div>
-    <%= form.button "Create new Blog", class: "text-white bg-blue-700 hover:bg-blue-800 p-2.5 rounded-lg text-sm shadow-lg", type: "submit" %>
+    <%= form.submit "Create new Blog", class: "text-white bg-blue-700 hover:bg-blue-800 p-2.5 rounded-lg text-sm shadow-lg", type: "submit" %>
 <% end %>
 </div>
