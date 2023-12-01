@@ -22,13 +22,13 @@ class BlogPostsController < ApplicationController
       redirect_to root_path, notice: 'Blog post was successfully created.'
     else
       # Failed to create a blog post, render the form again with errors
-      render :new
-      # => ["Title can't be blank", "Description can't be blank", "Body can't be blank"]
+      render :new, status: :unprocessable_entity
+      # => ["Title can't be blank", "Description can't be blank", "content can't be blank"]
     end
   end
 
   def blog_post_params
-    params.permit(:title, :description, :body, :image)
+    params.permit(:title, :description, :content, :image)
   end
 
   def user_blogs
