@@ -10,14 +10,15 @@ class BlogPostsController < ApplicationController
 
   def show
     @blog_post = BlogPost.find(params[:id])
+    @all_blog_posts = BlogPost.all
   end
 
   def new; end
 
   def create
-    @blog_post = current_user.blog_posts.build(blog_post_params)
+    @new_blog_post = current_user.blog_posts.build(blog_post_params)
 
-    if @blog_post.save
+    if @new_blog_post.save
       # Successfully created a blog post
       redirect_to root_path, notice: 'Blog post was successfully created.'
     else
@@ -28,7 +29,7 @@ class BlogPostsController < ApplicationController
   end
 
   def blog_post_params
-    params.permit(:title, :description, :content, :image)
+    params.permit(:title, :description, :content, :image, :category)
   end
 
   def user_blogs
