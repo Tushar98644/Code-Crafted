@@ -1,20 +1,31 @@
-  <section class="bg-gray-50 dark:bg-slate-800 py-28">
-   <div class="px-4 mx-auto h-screen w-screen md:px-16">
-      <h2 class="mb-8 text-2xl font-bold text-gray-900 dark:text-white text-center md:text-start">My Blogs</h2>
-      <div class="grid gap-12 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4">
-        <% @user_blog_posts.each do |blog_post| %>
-          <article class="max-w-xs">
-              <a href="#">
-                  <img src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/article/blog-1.png" class="mb-5 rounded-lg" alt="Image 1">
-              </a>
-              <h2 class="mb-2 text-xl font-bold leading-tight text-gray-900 dark:text-white">
-                  <a href="#"><%= blog_post.title %></a>
-              </h2>
-              <p class="mb-4 text-gray-500 dark:text-gray-400"><%= blog_post.body %></p>
-              <a href="/blog/:id" class="inline-flex items-center font-medium underline underline-offset-4 text-primary-600 dark:text-primary-500 hover:no-underline">
-                  Read in 2 minutes
-              </a>
-          </article>
-        <% end %>
-      </div>
+<section class="bg-gray-50 dark:bg-slate-800 py-28">
+  <div class="px-4 mx-auto h-screen w-screen md:px-16">
+    <h2 class="mb-8 text-2xl font-bold text-gray-900 dark:text-white text-center md:text-start">My Blogs</h2>
+    <div class="grid gap-12 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4">
+      <% @user_blog_posts.each do |blog_post| %>
+        <div class="relative flex flex-col mt-10 text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-96">
+          <div class="relative mx-4 -mt-8 overflow-hidden text-white shadow-lg bg-clip-border rounded-xl bg-blue-gray-500 shadow-blue-gray-500/40">
+            <% if blog_post.image.attached? %>
+              <%= link_to '#' do %>
+                <%= image_tag blog_post.image, class: "rounded-t-lg", alt: "Image 1" %>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="p-6">
+            <h5 class="block mb-2 font-sans text-xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
+              <%= blog_post.title %>
+            </h5>
+            <p class="block font-sans text-base antialiased font-light leading-relaxed text-inherit">
+              <%= blog_post.description %>
+            </p>
+          </div>
+          <div class="p-6 pt-0">
+            <button class="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 px-6 rounded-lg bg-gray-900 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none" type="button">
+              Read More
+            </button>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
+</section>
