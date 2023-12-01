@@ -21,7 +21,6 @@ class BlogPostsController < ApplicationController
       # Successfully created a blog post
       redirect_to root_path, notice: 'Blog post was successfully created.'
     else
-      blog_post.errors.full_messages
       # Failed to create a blog post, render the form again with errors
       render :new
       # => ["Title can't be blank", "Description can't be blank", "Body can't be blank"]
