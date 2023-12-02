@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <h1 class="text-blue-900 animate-bounce">hello</h1>
+  <h1 class="text-blue-900 animate-bounce"></h1>
 </template>
 
 <style scoped>
