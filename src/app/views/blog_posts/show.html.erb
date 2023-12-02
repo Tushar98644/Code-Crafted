@@ -5,7 +5,7 @@
         <address class="flex items-center mb-6 not-italic">
           <div class="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white">
             <% if @blog_post.user.avatar.attached? %>
-            <%= image_tag @blog_post.user.avatar, class: " h-14 w-14 rounded-full mx-2", alt: "Image 1" %>
+              <%= image_tag @blog_post.user.avatar, class: " h-14 w-14 rounded-full mx-2", alt: "Image 1" %>
             <% end %>
             <div>
               <a href="#" rel="author" class="text-xl font-bold text-gray-900 dark:text-white"><%= @blog_post.user.name %></a>
