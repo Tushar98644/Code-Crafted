@@ -1,6 +1,5 @@
 <script setup>
 // @ts-ignore
-import HomePage from "./components/HomePage.vue";
 import Layout from "./components/Layout.vue";
 </script>
 
