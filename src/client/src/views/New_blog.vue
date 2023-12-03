@@ -1,5 +1,5 @@
 <template>
-  <aside aria-label="new-blog" class="bg-slate-800 md:px-0 px-4">
+  <aside aria-label="new-blog" class="bg-slate-800 md:px-0 px-4 py-20">
     <!-- <%= form_with(model: @blog_post, url: '/create', method: 'post', class:"max-w-md mx-auto md:py-28 py-28") do |form| %> -->
     <div class="mb-5">
       <!-- <%= form.label :title, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>

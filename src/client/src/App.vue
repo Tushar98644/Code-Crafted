@@ -5,7 +5,7 @@ import Layout from "./components/Layout.vue";
 
 <template>
   <!-- <router-link to="/">Home</router-link>
-    <router-link to="/user_blogs">About Us</router-link> -->
+  <router-link to="/user_blogs">About Us</router-link> -->
   <Layout>
     <router-view />
   </Layout>

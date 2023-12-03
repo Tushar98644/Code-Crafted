@@ -57,3 +57,26 @@
     </div>
   </section>
 </template>
+
+<script>
+    export default {
+  data() {
+    return {
+      formData: {
+        name: '',
+        acceptTerms: false
+      }
+    };
+  },
+  methods: {
+    submitForm() {
+      // Handle form submission (e.g., send form data to API endpoint)
+      console.log('Form data:', this.formData);
+      // Make API request using Axios or fetch to submit the form data to your backend
+    }
+  }
+};
+</script>
+
+<style scoped>
+</style>
