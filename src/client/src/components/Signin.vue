@@ -1,10 +1,10 @@
 <template>
-<section class="bg-gray-50 dark:bg-gray-900 py-20">
+  <section class="bg-gray-50 dark:bg-gray-900 py-20">
     <div
       class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0"
     >
       <form
-        @submit.prevent="submitForm"
+        @submit.prevent="login"
         class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700"
       >
         <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
@@ -90,24 +90,52 @@
 </template>
 
 <script>
-    export default {
+import axios from "axios";
+import router from "../router";
+
+export default {
   data() {
     return {
       formData: {
-        name: '',
-        acceptTerms: false
-      }
+        email: "",
+        password: "",
+      },
     };
   },
   methods: {
-    submitForm() {
-      // Handle form submission (e.g., send form data to API endpoint)
-      console.log('Form data:', this.formData);
-      // Make API request using Axios or fetch to submit the form data to your backend
-    }
-  }
+    async login() {
+      try {
+        await axios.post("http://localhost:3000/auth/login", {
+          user: {
+            email: this.formData.email,
+            password: this.formData.password,
+          },
+        },{
+          headers: {
+            "Content-Type": "application/json",
+        },
+        // withCredentials: true,
+        }
+        )
+        .then((response) => {
+          console.log(response);
+          localStorage.setItem("token", response.headers.authorization);
+          router.push("/");
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+
+        // Handle successful login
+        // console.log(response);
+
+      } catch (error) {
+        // Handle login error
+        console.error(error.response.data);
+      }
+    },
+  },
 };
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>
