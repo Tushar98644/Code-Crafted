@@ -200,7 +200,7 @@ GEM
     responders (3.1.1)
       actionpack (>= 5.2)
       railties (>= 5.2)
-    securerandom (0.3.1)
+    securerandom (0.3.2)
     sqlite3 (2.2.0-aarch64-linux-gnu)
     sqlite3 (2.2.0-arm64-darwin)
     sqlite3 (2.2.0-x86_64-linux-gnu)
